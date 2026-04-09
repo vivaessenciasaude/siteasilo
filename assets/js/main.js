@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const nomeVal = nome.value.trim();
       const telVal = tel.value.trim();
-      const msgVal = msg.value.trim();
+      const msgVal = msg ? msg.value.trim() : '';
 
       let texto = `Olá! Me chamo *${nomeVal}*, meu telefone é *${telVal}*.`;
       if (msgVal) texto += ` Mensagem: ${msgVal}`;
@@ -186,6 +186,16 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowLeft') navigate(-1);
       if (e.key === 'ArrowRight') navigate(1);
+      // Focus trap: Tab/Shift+Tab cicla entre os 3 botões do lightbox
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        const focusable = [lbClose, lbPrev, lbNext].filter(Boolean);
+        const idx = focusable.indexOf(document.activeElement);
+        const next = e.shiftKey
+          ? focusable[(idx - 1 + focusable.length) % focusable.length]
+          : focusable[(idx + 1) % focusable.length];
+        if (next) next.focus();
+      }
     });
   }
 

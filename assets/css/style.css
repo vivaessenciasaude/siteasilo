@@ -1091,3 +1091,11 @@ ul {
   outline: 2px solid var(--color-white);
   outline-offset: 3px;
 }
+
+/* WA float sempre visível no mobile (sem necessidade de scroll) */
+@media (max-width: 767px) {
+  .whatsapp-float {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
