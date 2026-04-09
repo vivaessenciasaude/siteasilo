@@ -547,3 +547,60 @@ ul {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* =============================================
+   DIFERENCIAIS
+   ============================================= */
+.diferenciais__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+.diferencial {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.diferencial__icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  background-color: rgba(122,158,126,0.15);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.diferencial__icon svg {
+  width: 26px;
+  height: 26px;
+  color: var(--color-secondary);
+}
+
+.diferencial__title {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  color: var(--color-text);
+  margin-bottom: 0.35rem;
+}
+
+.diferencial__desc {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+
+@media (min-width: 600px) {
+  .diferenciais__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .diferenciais__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
