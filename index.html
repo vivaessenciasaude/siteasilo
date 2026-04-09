@@ -315,6 +315,87 @@
     </div>
   </section>
 
+  <!-- =============================================
+       ESTRUTURA / GALERIA
+       ============================================= -->
+  <section class="section section--alt galeria" id="estrutura" aria-labelledby="galeria-title">
+    <div class="container">
+      <div class="section__header fade-in">
+        <h2 class="section__title" id="galeria-title">Nossa Estrutura</h2>
+        <p class="section__subtitle">Conheça os espaços pensados para o conforto e bem-estar dos nossos residentes.</p>
+      </div>
+      <div class="galeria__grid" id="galeria-grid">
+        <figure class="galeria__item fade-in">
+          <button class="galeria__btn" data-index="0" aria-label="Ver foto: Área de convivência">
+            <img src="assets/images/galeria/foto-1.jpg"
+                 alt="Área de convivência do Viva Essência Saúde"
+                 loading="lazy"
+                 onerror="this.parentElement.parentElement.classList.add('galeria__item--placeholder')">
+          </button>
+          <figcaption class="galeria__caption">Área de convivência</figcaption>
+        </figure>
+        <figure class="galeria__item fade-in">
+          <button class="galeria__btn" data-index="1" aria-label="Ver foto: Quartos individuais">
+            <img src="assets/images/galeria/foto-2.jpg" alt="Quarto individual do Viva Essência Saúde" loading="lazy"
+                 onerror="this.parentElement.parentElement.classList.add('galeria__item--placeholder')">
+          </button>
+          <figcaption class="galeria__caption">Quartos individuais</figcaption>
+        </figure>
+        <figure class="galeria__item fade-in">
+          <button class="galeria__btn" data-index="2" aria-label="Ver foto: Área externa e jardim">
+            <img src="assets/images/galeria/foto-3.jpg" alt="Área externa e jardim do Viva Essência Saúde" loading="lazy"
+                 onerror="this.parentElement.parentElement.classList.add('galeria__item--placeholder')">
+          </button>
+          <figcaption class="galeria__caption">Área externa e jardim</figcaption>
+        </figure>
+        <figure class="galeria__item fade-in">
+          <button class="galeria__btn" data-index="3" aria-label="Ver foto: Sala de refeições">
+            <img src="assets/images/galeria/foto-4.jpg" alt="Sala de refeições do Viva Essência Saúde" loading="lazy"
+                 onerror="this.parentElement.parentElement.classList.add('galeria__item--placeholder')">
+          </button>
+          <figcaption class="galeria__caption">Sala de refeições</figcaption>
+        </figure>
+        <figure class="galeria__item fade-in">
+          <button class="galeria__btn" data-index="4" aria-label="Ver foto: Espaço de fisioterapia">
+            <img src="assets/images/galeria/foto-5.jpg" alt="Espaço de fisioterapia do Viva Essência Saúde" loading="lazy"
+                 onerror="this.parentElement.parentElement.classList.add('galeria__item--placeholder')">
+          </button>
+          <figcaption class="galeria__caption">Espaço de fisioterapia</figcaption>
+        </figure>
+        <figure class="galeria__item fade-in">
+          <button class="galeria__btn" data-index="5" aria-label="Ver foto: Área de lazer">
+            <img src="assets/images/galeria/foto-6.jpg" alt="Área de lazer do Viva Essência Saúde" loading="lazy"
+                 onerror="this.parentElement.parentElement.classList.add('galeria__item--placeholder')">
+          </button>
+          <figcaption class="galeria__caption">Área de lazer</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Lightbox (controlado pelo main.js) -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualizador de imagem" hidden>
+      <button class="lightbox__close" id="lightbox-close" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+      <button class="lightbox__nav lightbox__nav--prev" id="lightbox-prev" aria-label="Foto anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
+        </svg>
+      </button>
+      <div class="lightbox__content">
+        <img class="lightbox__img" id="lightbox-img" src="" alt="">
+        <p class="lightbox__caption" id="lightbox-caption"></p>
+      </div>
+      <button class="lightbox__nav lightbox__nav--next" id="lightbox-next" aria-label="Próxima foto">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
   <script src="assets/js/main.js"></script>
 </body>
 </html>
