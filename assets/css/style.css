@@ -233,7 +233,7 @@ ul {
   display: flex;
   align-items: center;
   gap: 1rem;
-  height: 72px;
+  height: 84px;
 }
 
 .header__logo {
@@ -241,13 +241,13 @@ ul {
 }
 
 .header__logo-img {
-  height: 48px;
+  height: 68px;
   width: auto;
 }
 
 .header__logo-text {
   font-family: var(--font-title);
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   color: var(--color-primary);
   font-weight: 700;
 }
@@ -339,7 +339,7 @@ ul {
   .header__nav {
     display: none;
     position: absolute;
-    top: 72px;
+    top: 84px;
     left: 0;
     right: 0;
     background-color: var(--color-white);
@@ -389,9 +389,10 @@ ul {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    135deg,
-    rgba(74, 107, 138, 0.82) 0%,
-    rgba(122, 158, 126, 0.65) 100%
+    160deg,
+    rgba(30, 45, 61, 0.78) 0%,
+    rgba(74, 107, 138, 0.70) 50%,
+    rgba(122, 158, 126, 0.55) 100%
   );
 }
 
@@ -498,12 +499,14 @@ ul {
   border-radius: var(--radius-lg);
   padding: 2rem 1.75rem;
   box-shadow: var(--shadow);
-  transition: transform var(--transition), box-shadow var(--transition);
+  border: 1px solid rgba(74,107,138,0.08);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
 .servico-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
+  border-color: rgba(74,107,138,0.18);
 }
 
 .servico-card__icon {
@@ -611,7 +614,7 @@ ul {
 .galeria__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .galeria__item {
@@ -671,7 +674,7 @@ ul {
 @media (min-width: 768px) {
   .galeria__grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 1.25rem;
   }
 }
 
@@ -792,9 +795,22 @@ ul {
 .depoimento {
   background-color: var(--color-white);
   border-radius: var(--radius-lg);
-  padding: 2rem;
-  box-shadow: var(--shadow);
+  padding: 2rem 2rem 1.75rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
   border-left: 4px solid var(--color-secondary);
+  position: relative;
+}
+
+.depoimento::before {
+  content: '\201C';
+  font-family: var(--font-title);
+  font-size: 5rem;
+  line-height: 1;
+  color: rgba(122,158,126,0.15);
+  position: absolute;
+  top: 0.5rem;
+  left: 1.25rem;
+  pointer-events: none;
 }
 
 .depoimento__stars {
@@ -1098,4 +1114,69 @@ ul {
     opacity: 1;
     pointer-events: auto;
   }
+}
+
+/* =============================================
+   REFINAMENTOS UI/UX
+   ============================================= */
+
+/* Diferencial — hover suave */
+.diferencial {
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  transition: background-color var(--transition);
+}
+
+.diferencial:hover {
+  background-color: rgba(122,158,126,0.06);
+}
+
+/* Seção título — linha decorativa */
+.section__title::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--color-secondary);
+  border-radius: 2px;
+  margin: 0.75rem auto 0;
+}
+
+.section__title[style*="text-align:left"]::after,
+.sobre__text .section__title::after {
+  margin-left: 0;
+}
+
+/* Botão primário — sombra sutil */
+.btn--primary {
+  box-shadow: 0 4px 14px rgba(74,107,138,0.25);
+}
+
+.btn--primary:hover {
+  box-shadow: 0 6px 20px rgba(74,107,138,0.35);
+}
+
+/* Botão WhatsApp — sombra verde */
+.btn--whatsapp {
+  box-shadow: 0 4px 14px rgba(37,211,102,0.22);
+}
+
+.btn--whatsapp:hover {
+  box-shadow: 0 6px 20px rgba(37,211,102,0.35);
+}
+
+/* Input focus — ring mais visível */
+.contato-form__field input:focus,
+.contato-form__field textarea:focus {
+  box-shadow: 0 0 0 3px rgba(74,107,138,0.12);
+}
+
+/* Galeria — borda arredondada maior */
+.galeria__item {
+  border-radius: var(--radius-lg);
+}
+
+/* Footer logo — tamanho maior */
+.footer__logo img {
+  height: 60px;
 }
