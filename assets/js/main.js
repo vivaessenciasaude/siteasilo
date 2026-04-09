@@ -74,3 +74,45 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleWaFloat();
   }
 
+  /* --------------------------------------------------
+     FORMULÁRIO → WHATSAPP REDIRECT
+  -------------------------------------------------- */
+  const form = document.getElementById('contato-form');
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const nome = form.querySelector('#campo-nome');
+      const tel = form.querySelector('#campo-tel');
+      const msg = form.querySelector('#campo-msg');
+
+      // Validação — marcar campos obrigatórios vazios
+      let valid = true;
+      [nome, tel].forEach(field => {
+        if (!field.value.trim()) {
+          field.classList.add('error');
+          valid = false;
+        } else {
+          field.classList.remove('error');
+        }
+      });
+
+      if (!valid) return;
+
+      const nomeVal = nome.value.trim();
+      const telVal = tel.value.trim();
+      const msgVal = msg.value.trim();
+
+      let texto = `Olá! Me chamo *${nomeVal}*, meu telefone é *${telVal}*.`;
+      if (msgVal) texto += ` Mensagem: ${msgVal}`;
+
+      const url = `https://wa.me/5519971691912?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+    });
+
+    // Remover classe .error ao digitar
+    form.querySelectorAll('input, textarea').forEach(field => {
+      field.addEventListener('input', () => field.classList.remove('error'));
+    });
+  }
+
