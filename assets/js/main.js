@@ -62,3 +62,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* --------------------------------------------------
+     FLOATING WHATSAPP — aparece após 300px de scroll
+  -------------------------------------------------- */
+  const waFloat = document.getElementById('whatsapp-float');
+  if (waFloat) {
+    const toggleWaFloat = () => {
+      waFloat.classList.toggle('visible', window.scrollY > 300);
+    };
+    window.addEventListener('scroll', toggleWaFloat, { passive: true });
+    toggleWaFloat();
+  }
+
