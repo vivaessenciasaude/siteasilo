@@ -121,6 +121,20 @@ ul {
   transform: translateY(-2px);
 }
 
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.btn--outline:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+
+.btn:active {
+  transform: translateY(0px);
+}
+
 .btn--primary {
   background-color: var(--color-primary);
   color: var(--color-white);
@@ -156,11 +170,28 @@ ul {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
 }
 
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+  will-change: auto;
+}
+
+/* =============================================
+   SCREEN-READER ONLY (acessibilidade)
+   ============================================= */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 /* =============================================
