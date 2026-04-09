@@ -116,3 +116,76 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* --------------------------------------------------
+     LIGHTBOX DA GALERIA
+  -------------------------------------------------- */
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  const lbCaption = document.getElementById('lightbox-caption');
+  const lbClose = document.getElementById('lightbox-close');
+  const lbPrev = document.getElementById('lightbox-prev');
+  const lbNext = document.getElementById('lightbox-next');
+  const galeriaGrid = document.getElementById('galeria-grid');
+
+  if (lightbox && galeriaGrid) {
+    const items = Array.from(galeriaGrid.querySelectorAll('.galeria__item'));
+    let currentIndex = 0;
+
+    const getImgData = (index) => {
+      const item = items[index];
+      const img = item.querySelector('img');
+      const caption = item.querySelector('.galeria__caption');
+      return {
+        src: img ? img.src : '',
+        alt: img ? img.alt : '',
+        caption: caption ? caption.textContent : ''
+      };
+    };
+
+    const openLightbox = (index) => {
+      currentIndex = index;
+      const data = getImgData(index);
+      lbImg.src = data.src;
+      lbImg.alt = data.alt;
+      lbCaption.textContent = data.caption;
+      lightbox.hidden = false;
+      document.body.style.overflow = 'hidden';
+      lbClose.focus();
+    };
+
+    const closeLightbox = () => {
+      lightbox.hidden = true;
+      document.body.style.overflow = '';
+      const activeBtn = galeriaGrid.querySelector(`[data-index="${currentIndex}"]`);
+      if (activeBtn) activeBtn.focus();
+    };
+
+    const navigate = (direction) => {
+      currentIndex = (currentIndex + direction + items.length) % items.length;
+      const data = getImgData(currentIndex);
+      lbImg.src = data.src;
+      lbImg.alt = data.alt;
+      lbCaption.textContent = data.caption;
+    };
+
+    galeriaGrid.addEventListener('click', e => {
+      const btn = e.target.closest('.galeria__btn');
+      if (btn) openLightbox(Number(btn.dataset.index));
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+    lbPrev.addEventListener('click', () => navigate(-1));
+    lbNext.addEventListener('click', () => navigate(1));
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (lightbox.hidden) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigate(-1);
+      if (e.key === 'ArrowRight') navigate(1);
+    });
+  }
+
