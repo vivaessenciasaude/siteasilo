@@ -435,3 +435,51 @@ ul {
     min-height: 85vh;
   }
 }
+
+/* =============================================
+   SOBRE
+   ============================================= */
+.sobre__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.sobre__text p {
+  color: var(--color-text-light);
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.sobre__lead {
+  font-size: 1.1rem;
+  color: var(--color-text) !important;
+  font-weight: 500;
+}
+
+.sobre__image img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.sobre__image-placeholder {
+  width: 100%;
+  min-height: 320px;
+  background-color: var(--color-bg-alt);
+  border-radius: var(--radius-lg);
+  border: 2px dashed rgba(74,107,138,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--color-text-light);
+}
+
+@media (min-width: 768px) {
+  .sobre__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
