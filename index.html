@@ -41,6 +41,18 @@
     gtag('config', 'AW-18082316445');
   </script>
 
+  <!-- Google Ads — Clique de saída (disparo no clique de WhatsApp/telefone) -->
+  <script>
+    function gtag_report_conversion() {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-18082316445/YWvbCI_IsZocEJ2Bqa5D',
+        'value': 1.0,
+        'currency': 'BRL'
+      });
+      return true;
+    }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -89,6 +101,7 @@
       </nav>
 
       <a href="https://wa.me/5519971691912?text=Ol%C3%A1!+Gostaria+de+saber+mais+sobre+o+Residencial+Viva+Ess%C3%AAncia+Sa%C3%BAde."
+         onclick="gtag_report_conversion();"
          class="btn btn--whatsapp header__whatsapp"
          target="_blank" rel="noopener noreferrer"
          aria-label="Falar pelo WhatsApp">
@@ -122,6 +135,7 @@
       </p>
       <div class="hero__ctas">
         <a href="https://wa.me/5519971691912?text=Ol%C3%A1!+Gostaria+de+saber+mais+sobre+o+Residencial+Viva+Ess%C3%AAncia+Sa%C3%BAde."
+           onclick="gtag_report_conversion();"
            class="btn btn--whatsapp"
            target="_blank" rel="noopener noreferrer">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -155,6 +169,7 @@
           a dignidade e a história de quem aqui vive.
         </p>
         <a href="https://wa.me/5519971691912?text=Ol%C3%A1!+Gostaria+de+saber+mais+sobre+o+Residencial+Viva+Ess%C3%AAncia+Sa%C3%BAde."
+           onclick="gtag_report_conversion();"
            class="btn btn--primary" target="_blank" rel="noopener noreferrer" style="margin-top:1.5rem">
           Agende uma visita
         </a>
@@ -493,7 +508,7 @@
             </svg>
             <div>
               <strong>Telefone / WhatsApp</strong>
-              <a href="tel:+5519971691912">(19) 97169-1912</a>
+              <a href="tel:+5519971691912" onclick="gtag_report_conversion();">(19) 97169-1912</a>
             </div>
           </li>
           <li>
@@ -580,10 +595,11 @@
         <h4 class="footer__heading">Contato</h4>
         <ul role="list">
           <li>
-            <a href="tel:+5519971691912">(19) 97169-1912</a>
+            <a href="tel:+5519971691912" onclick="gtag_report_conversion();">(19) 97169-1912</a>
           </li>
           <li>
             <a href="https://wa.me/5519971691912?text=Ol%C3%A1!+Gostaria+de+saber+mais+sobre+o+Residencial+Viva+Ess%C3%AAncia+Sa%C3%BAde."
+               onclick="gtag_report_conversion();"
                target="_blank" rel="noopener noreferrer">WhatsApp</a>
           </li>
           <li>Rua Hjalmar H. G. Lindquist, 807 — Parque Ortolândia, Hortolândia-SP</li>
@@ -603,6 +619,7 @@
 
   <!-- Floating WhatsApp Button -->
   <a href="https://wa.me/5519971691912?text=Ol%C3%A1!+Gostaria+de+saber+mais+sobre+o+Residencial+Viva+Ess%C3%AAncia+Sa%C3%BAde."
+     onclick="gtag_report_conversion();"
      class="whatsapp-float"
      id="whatsapp-float"
      target="_blank"
