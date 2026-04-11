@@ -408,13 +408,22 @@ ul {
   font-size: clamp(2rem, 5vw, 3.25rem);
   color: var(--color-white);
   line-height: 1.25;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
   max-width: 720px;
 }
 
 .hero__title em {
   font-style: italic;
   color: #d4e8d4;
+}
+
+.hero__tagline {
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  color: #d4e8d4;
+  font-style: italic;
+  max-width: 620px;
+  margin-bottom: 1rem;
+  line-height: 1.5;
 }
 
 .hero__subtitle {
