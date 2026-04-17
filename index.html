@@ -21,37 +21,18 @@
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
 
-  <!-- Google Analytics 4 — ativar antes do go-live -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
-
-  <!-- Meta Pixel — ativar antes do go-live -->
-  <!-- <script>!function(f,b,e,v,n,t,s){...}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','PIXEL_ID');fbq('track','PageView');</script> -->
-
-  <!-- Google Tag Manager — ativar antes do go-live -->
-  <!-- <script>(function(w,d,s,l,i){...})(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
-
-  <!-- Google tag (gtag.js) — Google Ads -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18082316445"></script>
+  <!-- Google tag (gtag.js) - GA4 + Google Ads -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LS74GEWELB"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
+    gtag('config', 'G-LS74GEWELB');
     gtag('config', 'AW-18082316445');
   </script>
 
-  <!-- Google Ads — Clique de saída (disparo no clique de WhatsApp/telefone) -->
-  <script>
-    function gtag_report_conversion() {
-      gtag('event', 'conversion', {
-        'send_to': 'AW-18082316445/YWvbCI_IsZocEJ2Bqa5D',
-        'value': 1.0,
-        'currency': 'BRL'
-      });
-      return true;
-    }
-  </script>
+  <!-- Helpers de conversão (trackFormSubmit, trackWhatsAppClick) -->
+  <script defer src="assets/js/tracking.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -86,7 +67,7 @@
   <header class="header" id="header">
     <div class="container header__inner">
       <a href="#" class="header__logo" aria-label="Viva Essência Saúde — Página inicial">
-        <img src="assets/images/logo.png" alt="Viva Essência Saúde" class="header__logo-img"
+        <img src="assets/images/logo.webp" alt="Viva Essência Saúde" class="header__logo-img"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
         <span class="header__logo-text" style="display:none">Viva Essência Saúde</span>
       </a>
@@ -101,7 +82,7 @@
       </nav>
 
       <a href="https://wa.me/5519971691912?text=Ol%C3%A1!+Gostaria+de+saber+mais+sobre+o+Residencial+Viva+Ess%C3%AAncia+Sa%C3%BAde."
-         onclick="gtag_report_conversion();"
+         onclick="trackWhatsAppClick();"
          class="btn btn--whatsapp header__whatsapp"
          target="_blank" rel="noopener noreferrer"
          aria-label="Falar pelo WhatsApp">
@@ -135,7 +116,7 @@
       </p>
       <div class="hero__ctas">
         <a href="https://wa.me/5519971691912?text=Ol%C3%A1!+Gostaria+de+saber+mais+sobre+o+Residencial+Viva+Ess%C3%AAncia+Sa%C3%BAde."
-           onclick="gtag_report_conversion();"
+           onclick="trackWhatsAppClick();"
            class="btn btn--whatsapp"
            target="_blank" rel="noopener noreferrer">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -169,13 +150,13 @@
           a dignidade e a história de quem aqui vive.
         </p>
         <a href="https://wa.me/5519971691912?text=Ol%C3%A1!+Gostaria+de+saber+mais+sobre+o+Residencial+Viva+Ess%C3%AAncia+Sa%C3%BAde."
-           onclick="gtag_report_conversion();"
+           onclick="trackWhatsAppClick();"
            class="btn btn--primary" target="_blank" rel="noopener noreferrer" style="margin-top:1.5rem">
           Agende uma visita
         </a>
       </div>
       <div class="sobre__image fade-in">
-        <img src="assets/images/galeria/foto-1.jpg" alt="Entrada do Viva Essência Saúde" loading="lazy">
+        <img src="assets/images/galeria/foto-1.webp" alt="Entrada do Viva Essência Saúde" loading="lazy">
       </div>
     </div>
   </section>
@@ -349,55 +330,55 @@
       <div class="galeria__grid" id="galeria-grid">
         <figure class="galeria__item fade-in">
           <button class="galeria__btn" data-index="0" aria-label="Ver foto: Entrada">
-            <img src="assets/images/galeria/foto-1.jpg" alt="Entrada do Viva Essência Saúde" loading="lazy">
+            <img src="assets/images/galeria/foto-1.webp" alt="Entrada do Viva Essência Saúde" loading="lazy">
           </button>
           <figcaption class="galeria__caption">Entrada</figcaption>
         </figure>
         <figure class="galeria__item fade-in">
           <button class="galeria__btn" data-index="1" aria-label="Ver foto: Refeitório">
-            <img src="assets/images/galeria/foto-2.jpg" alt="Refeitório do Viva Essência Saúde" loading="lazy">
+            <img src="assets/images/galeria/foto-2.webp" alt="Refeitório do Viva Essência Saúde" loading="lazy">
           </button>
           <figcaption class="galeria__caption">Refeitório</figcaption>
         </figure>
         <figure class="galeria__item fade-in">
           <button class="galeria__btn" data-index="2" aria-label="Ver foto: Área externa">
-            <img src="assets/images/galeria/foto-3.jpg" alt="Área externa do Viva Essência Saúde" loading="lazy">
+            <img src="assets/images/galeria/foto-3.webp" alt="Área externa do Viva Essência Saúde" loading="lazy">
           </button>
           <figcaption class="galeria__caption">Área externa</figcaption>
         </figure>
         <figure class="galeria__item fade-in">
           <button class="galeria__btn" data-index="3" aria-label="Ver foto: Cantinho do café">
-            <img src="assets/images/galeria/foto-4.jpg" alt="Cantinho do café do Viva Essência Saúde" loading="lazy">
+            <img src="assets/images/galeria/foto-4.webp" alt="Cantinho do café do Viva Essência Saúde" loading="lazy">
           </button>
           <figcaption class="galeria__caption">Cantinho do café</figcaption>
         </figure>
         <figure class="galeria__item fade-in">
           <button class="galeria__btn" data-index="4" aria-label="Ver foto: Sala de convivência">
-            <img src="assets/images/galeria/foto-5.jpg" alt="Sala de convivência do Viva Essência Saúde" loading="lazy">
+            <img src="assets/images/galeria/foto-5.webp" alt="Sala de convivência do Viva Essência Saúde" loading="lazy">
           </button>
           <figcaption class="galeria__caption">Sala de convivência</figcaption>
         </figure>
         <figure class="galeria__item fade-in">
           <button class="galeria__btn" data-index="5" aria-label="Ver foto: Área externa">
-            <img src="assets/images/galeria/foto-6.jpg" alt="Área externa do Viva Essência Saúde" loading="lazy">
+            <img src="assets/images/galeria/foto-6.webp" alt="Área externa do Viva Essência Saúde" loading="lazy">
           </button>
           <figcaption class="galeria__caption">Área externa</figcaption>
         </figure>
         <figure class="galeria__item fade-in">
           <button class="galeria__btn" data-index="6" aria-label="Ver foto: Área externa">
-            <img src="assets/images/galeria/foto-7.jpg" alt="Área externa do Viva Essência Saúde" loading="lazy">
+            <img src="assets/images/galeria/foto-7.webp" alt="Área externa do Viva Essência Saúde" loading="lazy">
           </button>
           <figcaption class="galeria__caption">Área externa</figcaption>
         </figure>
         <figure class="galeria__item fade-in">
           <button class="galeria__btn" data-index="7" aria-label="Ver foto: Área externa">
-            <img src="assets/images/galeria/foto-8.jpg" alt="Área externa do Viva Essência Saúde" loading="lazy">
+            <img src="assets/images/galeria/foto-8.webp" alt="Área externa do Viva Essência Saúde" loading="lazy">
           </button>
           <figcaption class="galeria__caption">Área externa</figcaption>
         </figure>
         <figure class="galeria__item fade-in">
           <button class="galeria__btn" data-index="8" aria-label="Ver foto: Banheiro adaptado">
-            <img src="assets/images/galeria/foto-9.jpg" alt="Banheiro adaptado do Viva Essência Saúde" loading="lazy">
+            <img src="assets/images/galeria/foto-9.webp" alt="Banheiro adaptado do Viva Essência Saúde" loading="lazy">
           </button>
           <figcaption class="galeria__caption">Banheiro adaptado</figcaption>
         </figure>
@@ -508,7 +489,7 @@
             </svg>
             <div>
               <strong>Telefone / WhatsApp</strong>
-              <a href="tel:+5519971691912" onclick="gtag_report_conversion();">(19) 97169-1912</a>
+              <a href="tel:+5519971691912" onclick="trackWhatsAppClick();">(19) 97169-1912</a>
             </div>
           </li>
           <li>
@@ -572,7 +553,7 @@
 
       <div class="footer__brand">
         <a href="#" class="footer__logo" aria-label="Viva Essência Saúde — topo da página">
-          <img src="assets/images/logo.png" alt="Viva Essência Saúde"
+          <img src="assets/images/logo.webp" alt="Viva Essência Saúde"
                onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
           <span style="display:none" class="footer__logo-text">Viva Essência Saúde</span>
         </a>
@@ -595,11 +576,11 @@
         <h4 class="footer__heading">Contato</h4>
         <ul role="list">
           <li>
-            <a href="tel:+5519971691912" onclick="gtag_report_conversion();">(19) 97169-1912</a>
+            <a href="tel:+5519971691912" onclick="trackWhatsAppClick();">(19) 97169-1912</a>
           </li>
           <li>
             <a href="https://wa.me/5519971691912?text=Ol%C3%A1!+Gostaria+de+saber+mais+sobre+o+Residencial+Viva+Ess%C3%AAncia+Sa%C3%BAde."
-               onclick="gtag_report_conversion();"
+               onclick="trackWhatsAppClick();"
                target="_blank" rel="noopener noreferrer">WhatsApp</a>
           </li>
           <li>Rua Hjalmar H. G. Lindquist, 807 — Parque Ortolândia, Hortolândia-SP</li>
@@ -619,7 +600,7 @@
 
   <!-- Floating WhatsApp Button -->
   <a href="https://wa.me/5519971691912?text=Ol%C3%A1!+Gostaria+de+saber+mais+sobre+o+Residencial+Viva+Ess%C3%AAncia+Sa%C3%BAde."
-     onclick="gtag_report_conversion();"
+     onclick="trackWhatsAppClick();"
      class="whatsapp-float"
      id="whatsapp-float"
      target="_blank"

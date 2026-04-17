@@ -106,6 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
       let texto = `Olá! Me chamo *${nomeVal}*, meu telefone é *${telVal}*.`;
       if (msgVal) texto += ` Mensagem: ${msgVal}`;
 
+      // Dispara conversão (GA4 generate_lead; Ads só se label configurado)
+      if (typeof trackFormSubmit === 'function') trackFormSubmit();
+
       const url = `https://wa.me/5519971691912?text=${encodeURIComponent(texto)}`;
       window.open(url, '_blank', 'noopener,noreferrer');
     });
