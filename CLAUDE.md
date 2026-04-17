@@ -4,6 +4,14 @@
 Landing page de alta conversão para captação de clientes via tráfego pago (Google Ads e Meta Ads).
 O negócio é um Residencial Sênior / Casa de Repouso localizado em Hortolândia-SP, com médico proprietário residente.
 
+## Estrutura de Documentação
+O repositório usa 4 pastas no nível raiz para separar tipos de documentação (cada uma tem um `README.md` explicando seu propósito):
+
+- **[plans/](plans/README.md)** — o que SERÁ feito: roadmaps, backlog, propostas de arquitetura
+- **[specs/](specs/README.md)** — como algo DEVE funcionar: contratos técnicos, schemas, critérios de aceite
+- **[docs/](docs/README.md)** — documentação geral: setup, arquitetura, padrões de código
+- **[ops/](ops/README.md)** — operação: tráfego pago, métricas, logs de campanha, decisões de marketing
+
 ## Objetivo Principal
 Gerar leads qualificados através de formulário de contato e botão de WhatsApp.
 O visitante ideal é filho(a) adulto(a), entre 40 e 60 anos, que busca cuidados especializados para um familiar idoso.
