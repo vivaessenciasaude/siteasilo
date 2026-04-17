@@ -28,6 +28,12 @@ O visitante ideal é filho(a) adulto(a), entre 40 e 60 anos, que busca cuidados 
 - Sem dependências de build (projeto deve rodar com Live Server)
 - Preparado para futura integração de blog (estrutura de pastas modular)
 
+## Hospedagem e Deploy
+- Domínio: vivaessenciasaude.com.br
+- Hospedagem: Vercel (free tier)
+- Controle de versão: GitHub
+- Deploy: automático via integração GitHub ↔ Vercel (push na branch `master` → deploy em produção)
+
 ## Identidade Visual
 - Cor primária: #4A6B8A (azul-ardósia — confiança, saúde)
 - Cor secundária: #7A9E7E (verde-sálvia — natureza, acolhimento)
@@ -39,7 +45,7 @@ O visitante ideal é filho(a) adulto(a), entre 40 e 60 anos, que busca cuidados 
 - Tom visual: sofisticado, acolhedor, humano — nunca clínico ou frio
 
 ## Logo
-- Arquivo: /assets/images/logo.png (PNG com fundo transparente)
+- Arquivo: /assets/images/logo.webp (WebP com fundo transparente)
 - Usar no header e footer
 - Não distorcer proporções
 
@@ -52,13 +58,18 @@ viva-essencia/
 │   ├── css/
 │   │   └── style.css
 │   ├── js/
-│   │   └── main.js
+│   │   ├── main.js
+│   │   └── tracking.js       ← GA4 + Google Ads
 │   └── images/
-│       ├── logo.png
-│       ├── hero-bg.jpg
+│       ├── logo.webp
+│       ├── hero-bg.webp
 │       └── galeria/
-├── blog/               ← reservado para fase futura
-└── README.md
+├── blog/                     ← reservado para fase futura
+├── plans/                    ← roadmaps e backlog
+├── specs/                    ← contratos técnicos
+├── docs/                     ← setup e arquitetura
+└── ops/                      ← operação e métricas
+                              ← ex: campanha-ads-log.md
 ```
 
 ## Seções da Landing Page (nesta ordem)
@@ -122,7 +133,7 @@ viva-essencia/
 - Meta description: "Residencial sênior com médico responsável em Hortolândia. Cuidados especializados, equipe 24h e estrutura acolhedora. Agende uma visita."
 - Heading H1 único por página
 - Imagens com atributo alt descritivo
-- Schema markup de LocalBusiness (JSON-LD)
+- Schema markup de LocalBusiness (JSON-LD) — PENDENTE de implementação
 
 ## Performance e Boas Práticas
 - Imagens otimizadas (WebP quando possível)
@@ -131,11 +142,23 @@ viva-essencia/
 - Site responsivo — mobile first (maioria do tráfego pago chega pelo celular)
 - Tempo de carregamento alvo: abaixo de 3 segundos
 
-## Integrações Futuras
-- Google Analytics 4 (tag já reservada no head)
-- Meta Pixel (tag já reservada no head)
-- Google Tag Manager (recomendado para gerenciar tags sem recodar)
-- Blog em /blog/ — estrutura de pastas já reservada
+## Integrações de Tracking
+
+### Implementadas
+- **Google Analytics 4** — ID: `G-LS74GEWELB`
+  - Eventos: `generate_lead` (form submit), `click` (WhatsApp)
+- **Google Ads** — Conversion ID: `AW-18082316445`
+  - Ações de conversão pendentes de criação no painel (envio de formulário + clique WhatsApp). Labels ficam como `'PENDENTE'` no `tracking.js` até serem criadas.
+
+### Pendentes
+- **Meta Pixel** — aguardando criação do Business Manager
+- **Formulário (endpoint)** — decisão entre Formspree e Web3Forms pendente. `FORM_ENDPOINT` é placeholder no `tracking.js`.
+
+### Decisão arquitetural
+Não utilizar Google Tag Manager neste projeto. A complexidade não se justifica para landing page single. Tags são gerenciadas diretamente no `tracking.js` e no `<head>` do `index.html`.
+
+### Outras integrações futuras
+- Blog em `/blog/` — estrutura de pastas já reservada
 
 ## Regras Gerais de Desenvolvimento
 - Sempre mobile first
@@ -144,3 +167,9 @@ viva-essencia/
 - Todos os botões de contato devem abrir WhatsApp ou formulário
 - Não usar bibliotecas pesadas (sem Bootstrap, sem jQuery)
 - Código limpo, comentado e organizado por seção
+
+## Compliance e LGPD
+- Política de Privacidade obrigatória (pendente de criação)
+- Banner de consentimento de cookies (pendente)
+- Aviso regulatório de registro ANVISA / CRM no footer — PENDENTE de confirmação com o cliente (residencial sênior é regulado como ILPI pela ANVISA)
+- Aviso de consentimento de contato comercial abaixo do formulário
