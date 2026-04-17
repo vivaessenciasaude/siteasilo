@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /blog/
+Disallow: /blog
+
+Sitemap: https://vivaessenciasaude.com.br/sitemap.xml
