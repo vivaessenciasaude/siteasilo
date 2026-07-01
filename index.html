@@ -12,14 +12,18 @@
   <!-- Open Graph Meta Tags (para compartilhamento em redes sociais) -->
   <meta property="og:title" content="Viva Essência Saúde | Residencial Sênior em Hortolândia-SP">
   <meta property="og:description" content="Residencial sênior com médico responsável em Hortolândia. Cuidados especializados, equipe 24h e estrutura acolhedora.">
-  <meta property="og:image" content="https://vivaessenciasaude.com.br/assets/images/og-image.jpg">
+  <meta property="og:image" content="https://vivaessenciasaude.com.br/assets/images/hero-bg.webp">
+  <meta property="og:image:alt" content="Ambiente acolhedor do Residencial Viva Essência Saúde em Hortolândia">
+  <meta property="og:locale" content="pt_BR">
   <meta property="og:url" content="https://vivaessenciasaude.com.br">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vivaessenciasaude.com.br/assets/images/hero-bg.webp">
 
-  <!-- Favicon (substituir por favicon real antes do go-live) -->
+  <!-- Favicon SVG (funciona em todos os navegadores modernos).
+       TODO polish: gerar apple-touch-icon.png (180x180) e og-image.jpg (1200x630) dedicados. -->
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="icon" type="image/webp" href="assets/images/logo.webp" sizes="any">
 
   <!-- Google tag (gtag.js) - GA4 + Google Ads -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LS74GEWELB"></script>
@@ -34,29 +38,76 @@
   <!-- Helpers de conversão (trackFormSubmit, trackWhatsAppClick) -->
   <script defer src="assets/js/tracking.js"></script>
 
+  <!-- Preload da imagem do hero (LCP) -->
+  <link rel="preload" as="image" href="assets/images/hero-bg.webp" fetchpriority="high">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Fontes carregadas de forma não-bloqueante (não travam o first render) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  </noscript>
   <link rel="stylesheet" href="assets/css/style.css">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": "https://vivaessenciasaude.com.br/#business",
     "name": "Viva Essência Saúde",
-    "description": "Residencial sênior com médico responsável em Hortolândia-SP. Cuidados especializados, equipe 24h e estrutura acolhedora.",
+    "alternateName": "Residencial Viva Essência Saúde",
+    "description": "Residencial sênior (ILPI) com médico responsável em Hortolândia-SP. Cuidados especializados para idosos, incluindo Alzheimer e acamados, equipe 24h e estrutura acolhedora.",
     "url": "https://vivaessenciasaude.com.br",
     "telephone": "+55-19-97169-1912",
+    "image": "https://vivaessenciasaude.com.br/assets/images/hero-bg.webp",
+    "logo": "https://vivaessenciasaude.com.br/assets/images/logo.webp",
+    "priceRange": "$$",
+    "currenciesAccepted": "BRL",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Rua Hjalmar Holdrich Gerhard Lindquist, 807",
+      "streetAddress": "Rua Hjalmar Holdrich Gerhard Lindquist, 807 — Parque Ortolândia",
       "addressLocality": "Hortolândia",
       "addressRegion": "SP",
-      "postalAddressLocality": "Parque Ortolândia",
       "addressCountry": "BR"
     },
-    "openingHours": "Mo-Su 00:00-23:59",
-    "priceRange": "$$"
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -22.8696,
+      "longitude": -47.2213
+    },
+    "hasMap": "https://share.google/Js7ECI3415SMEjnuZ",
+    "sameAs": [
+      "https://share.google/Js7ECI3415SMEjnuZ"
+    ],
+    "areaServed": [
+      { "@type": "City", "name": "Hortolândia" },
+      { "@type": "City", "name": "Campinas" },
+      { "@type": "City", "name": "Sumaré" },
+      { "@type": "City", "name": "Nova Odessa" },
+      { "@type": "City", "name": "Monte Mor" }
+    ],
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Dr. George J. Burlandy",
+      "jobTitle": "Médico responsável",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "CRM/SP",
+        "value": "80709"
+      }
+    },
+    "employee": {
+      "@type": "Person",
+      "name": "Dr. George J. Burlandy",
+      "jobTitle": "Médico responsável"
+    }
   }
   </script>
 </head>
@@ -149,6 +200,17 @@
           com vínculos de confiança entre a equipe e a família, e um cuidado que respeita
           a dignidade e a história de quem aqui vive.
         </p>
+
+        <!-- Credencial do médico responsável — sinal de autoridade (E-E-A-T) -->
+        <div class="sobre__medico fade-in">
+          <div class="sobre__medico-avatar" aria-hidden="true">GB</div>
+          <div class="sobre__medico-info">
+            <strong>Dr. George J. Burlandy</strong>
+            <span class="sobre__medico-crm">Médico responsável e proprietário &middot; CRM/SP 80709</span>
+            <p>Presente no dia a dia do residencial, é ele quem define e acompanha o plano de cuidado individualizado de cada residente.</p>
+          </div>
+        </div>
+
         <a href="https://wa.me/5519971691912?text=Ol%C3%A1!+Gostaria+de+saber+mais+sobre+o+Residencial+Viva+Ess%C3%AAncia+Sa%C3%BAde."
            onclick="trackWhatsAppClick();"
            class="btn btn--primary" target="_blank" rel="noopener noreferrer" style="margin-top:1.5rem">
@@ -462,6 +524,122 @@
   </section>
 
   <!-- =============================================
+       FAQ / PERGUNTAS FREQUENTES
+       (acordeão nativo <details> — conteúdo no DOM, rastreável por busca e IA)
+       ============================================= -->
+  <section class="section faq" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="section__header fade-in">
+        <h2 class="section__title" id="faq-title">Perguntas frequentes</h2>
+        <p class="section__subtitle">As dúvidas mais comuns de quem está escolhendo um residencial para o seu familiar.</p>
+      </div>
+      <div class="faq__list">
+
+        <details class="faq__item fade-in">
+          <summary class="faq__question">O que é um residencial sênior (ILPI) e como funciona?</summary>
+          <div class="faq__answer">
+            <p>Um residencial sênior — tecnicamente uma ILPI (Instituição de Longa Permanência para Idosos) — é uma moradia onde o idoso recebe cuidado, alimentação, acompanhamento de saúde e convivência de forma contínua. No Viva Essência Saúde, em Hortolândia, cada residente tem um plano de cuidado individualizado, com equipe presente 24 horas e médico responsável.</p>
+          </div>
+        </details>
+
+        <details class="faq__item fade-in">
+          <summary class="faq__question">O Viva Essência Saúde tem médico responsável?</summary>
+          <div class="faq__answer">
+            <p>Sim. O residencial conta com médico responsável acompanhando os residentes, além de equipe de cuidadores presente 24 horas por dia, todos os dias. A rotina, a medicação e os cuidados são definidos e ajustados de acordo com a saúde de cada pessoa.</p>
+          </div>
+        </details>
+
+        <details class="faq__item fade-in">
+          <summary class="faq__question">Vocês atendem idosos com Alzheimer ou acamados?</summary>
+          <div class="faq__answer">
+            <p>Sim. Oferecemos cuidado especializado para residentes com maior grau de dependência, incluindo pacientes acamados e com Alzheimer e outras demências, com monitoramento contínuo e suporte de enfermagem no dia a dia.</p>
+          </div>
+        </details>
+
+        <details class="faq__item fade-in">
+          <summary class="faq__question">Quais cidades e regiões vocês atendem?</summary>
+          <div class="faq__answer">
+            <p>Estamos em Hortolândia-SP, no Parque Ortolândia, com fácil acesso para famílias de toda a região de Campinas — incluindo Campinas, Sumaré, Nova Odessa e Monte Mor.</p>
+          </div>
+        </details>
+
+        <details class="faq__item fade-in">
+          <summary class="faq__question">Como faço para agendar uma visita?</summary>
+          <div class="faq__answer">
+            <p>Basta entrar em contato pelo WhatsApp (19) 97169-1912. Você agenda uma visita sem compromisso, conhece a estrutura e a equipe pessoalmente e recebe uma orientação individualizada para a situação do seu familiar.</p>
+          </div>
+        </details>
+
+        <details class="faq__item fade-in">
+          <summary class="faq__question">Como funciona o valor da mensalidade?</summary>
+          <div class="faq__answer">
+            <p>O valor é definido conforme o grau de cuidado que cada residente precisa — por exemplo, o nível de dependência e o acompanhamento de saúde necessário. O melhor caminho é agendar uma visita ou falar pelo WhatsApp para receber uma proposta personalizada, sem compromisso.</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQPage schema (as respostas espelham o conteúdo visível acima) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "O que é um residencial sênior (ILPI) e como funciona?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Um residencial sênior — tecnicamente uma ILPI (Instituição de Longa Permanência para Idosos) — é uma moradia onde o idoso recebe cuidado, alimentação, acompanhamento de saúde e convivência de forma contínua. No Viva Essência Saúde, em Hortolândia, cada residente tem um plano de cuidado individualizado, com equipe presente 24 horas e médico responsável."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "O Viva Essência Saúde tem médico responsável?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. O residencial conta com médico responsável acompanhando os residentes, além de equipe de cuidadores presente 24 horas por dia, todos os dias. A rotina, a medicação e os cuidados são definidos e ajustados de acordo com a saúde de cada pessoa."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Vocês atendem idosos com Alzheimer ou acamados?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. Oferecemos cuidado especializado para residentes com maior grau de dependência, incluindo pacientes acamados e com Alzheimer e outras demências, com monitoramento contínuo e suporte de enfermagem no dia a dia."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quais cidades e regiões vocês atendem?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Estamos em Hortolândia-SP, no Parque Ortolândia, com fácil acesso para famílias de toda a região de Campinas — incluindo Campinas, Sumaré, Nova Odessa e Monte Mor."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como faço para agendar uma visita?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Basta entrar em contato pelo WhatsApp (19) 97169-1912. Você agenda uma visita sem compromisso, conhece a estrutura e a equipe pessoalmente e recebe uma orientação individualizada para a situação do seu familiar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como funciona o valor da mensalidade?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O valor é definido conforme o grau de cuidado que cada residente precisa — por exemplo, o nível de dependência e o acompanhamento de saúde necessário. O melhor caminho é agendar uma visita ou falar pelo WhatsApp para receber uma proposta personalizada, sem compromisso."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- =============================================
        LOCALIZAÇÃO / CONTATO
        ============================================= -->
   <section class="section section--alt localizacao" id="contato" aria-labelledby="contato-title">
@@ -528,10 +706,11 @@
       </div>
 
       <div class="localizacao__mapa fade-in">
-        <!-- Substituir src pelo embed real do Google Maps com endereço real -->
+        <!-- Embed apontando para o endereço real. Para o pin exato do seu perfil,
+             troque por: Google Business Profile > Compartilhar > Incorporar um mapa. -->
         <iframe
           class="localizacao__iframe"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117568.5!2d-47.2!3d-22.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDUxJzAwLjAiUyA0N8KwMTInMDAuMCJX!5e0!3m2!1spt!2sbr!4v0000000000000"
+          src="https://maps.google.com/maps?q=Viva%20Ess%C3%AAncia%20Sa%C3%BAde%2C%20Rua%20Hjalmar%20Holdrich%20Gerhard%20Lindquist%2C%20807%2C%20Hortol%C3%A2ndia%20-%20SP&z=16&hl=pt-BR&output=embed"
           width="600"
           height="100%"
           style="border:0"
@@ -559,7 +738,7 @@
           <span style="display:none" class="footer__logo-text">Viva Essência Saúde</span>
         </a>
         <p class="footer__tagline">Cuidado com carinho, segurança com presença.</p>
-        <p class="footer__registro">Estabelecimento registrado no CRM/ANVISA</p>
+        <p class="footer__registro">Médico responsável: Dr. George J. Burlandy — CRM/SP 80709</p>
       </div>
 
       <div class="footer__links">
@@ -569,6 +748,7 @@
           <li><a href="#servicos">Serviços</a></li>
           <li><a href="#estrutura">Estrutura</a></li>
           <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#faq">Dúvidas frequentes</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </div>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Viva Essência Saúde">
+  <rect width="64" height="64" rx="14" fill="#4A6B8A"/>
+  <path d="M32 13 C 45 25, 45 41, 32 53 C 19 41, 19 25, 32 13 Z" fill="#7A9E7E"/>
+  <path d="M32 18 L 32 49" stroke="#F5F3EF" stroke-width="2" stroke-linecap="round"/>
+  <path d="M32 30 L 39 25 M32 30 L 25 25 M32 39 L 40 34 M32 39 L 24 34" stroke="#F5F3EF" stroke-width="1.6" stroke-linecap="round" opacity="0.85"/>
+</svg>
