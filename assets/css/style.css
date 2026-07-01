@@ -1267,11 +1267,17 @@ section[id] {
   color: var(--color-text);
   cursor: pointer;
   list-style: none;
+  transition: color var(--transition);
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Remove o marcador nativo do <summary> */
 .faq__question::-webkit-details-marker {
   display: none;
+}
+
+.faq__question:hover {
+  color: var(--color-primary);
 }
 
 .faq__question:focus-visible {
@@ -1280,24 +1286,36 @@ section[id] {
   border-radius: var(--radius-lg);
 }
 
-/* Chevron indicador (gira ao abrir) */
+/* Chevron indicador */
 .faq__question::after {
   content: '';
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   margin-left: auto;
   flex-shrink: 0;
   border-right: 2px solid var(--color-primary);
   border-bottom: 2px solid var(--color-primary);
+  border-radius: 1px;
   transform: rotate(45deg);
   transition: transform var(--transition);
 }
 
+/* Fallback sem JS: chevron segue o atributo [open] nativo */
 .faq__item[open] .faq__question::after {
   transform: rotate(-135deg);
 }
 
+/* Com JS: chevron segue .is-open (sincroniza com a animação de fechar) */
+.faq--enhanced .faq__item[open] .faq__question::after {
+  transform: rotate(45deg);
+}
+
+.faq--enhanced .faq__item.is-open .faq__question::after {
+  transform: rotate(-135deg);
+}
+
 .faq__answer {
+  overflow: hidden;
   padding: 0 var(--space-6) var(--space-5);
 }
 
@@ -1324,20 +1342,21 @@ section[id] {
   box-shadow: var(--shadow-sm);
 }
 
-.sobre__medico-avatar {
+.sobre__medico-icon {
   flex-shrink: 0;
-  width: 52px;
-  height: 52px;
-  border-radius: var(--radius-full);
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius);
+  background-color: rgba(74, 107, 138, 0.10);
+  color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-title);
-  font-weight: 700;
-  font-size: var(--text-lg);
-  letter-spacing: 1px;
+}
+
+.sobre__medico-icon svg {
+  width: 26px;
+  height: 26px;
 }
 
 .sobre__medico-info strong {
@@ -1360,4 +1379,18 @@ section[id] {
   color: var(--color-text-light);
   line-height: 1.65;
   margin: 0;
+}
+
+/* =============================================
+   PREFERS-REDUCED-MOTION — respeita quem desativou animações
+   ============================================= */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

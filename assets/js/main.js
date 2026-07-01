@@ -222,4 +222,59 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeEls.forEach(el => el.classList.add('visible'));
   }
 
+  /* --------------------------------------------------
+     FAQ — acordeão com animação suave (progressive enhancement)
+     O <details> nativo já funciona sem JS. Aqui só suavizamos a
+     transição de abrir/fechar, respeitando prefers-reduced-motion.
+  -------------------------------------------------- */
+  const faqList = document.querySelector('.faq__list');
+  const prefersReducedMotion =
+    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (faqList && typeof Element.prototype.animate === 'function' && !prefersReducedMotion) {
+    faqList.classList.add('faq--enhanced');
+
+    const OPEN = { duration: 260, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' };
+    const CLOSE = { duration: 200, easing: 'cubic-bezier(0.4, 0, 1, 1)' };
+
+    faqList.querySelectorAll('.faq__item').forEach(item => {
+      const summary = item.querySelector('.faq__question');
+      const answer = item.querySelector('.faq__answer');
+      if (!summary || !answer) return;
+
+      summary.addEventListener('click', e => {
+        e.preventDefault();
+        if (item._anim) item._anim.cancel();
+
+        if (item.open) {
+          // Fechar: anima a altura até 0 e só então remove o [open]
+          item.classList.remove('is-open');
+          const startH = answer.scrollHeight;
+          item._anim = answer.animate(
+            [{ height: startH + 'px', opacity: 1 }, { height: '0px', opacity: 0 }],
+            CLOSE
+          );
+          item._anim.onfinish = () => {
+            item.open = false;
+            answer.style.height = '';
+            item._anim = null;
+          };
+        } else {
+          // Abrir: mostra o conteúdo, mede e anima de 0 até a altura real
+          item.open = true;
+          item.classList.add('is-open');
+          const endH = answer.scrollHeight;
+          item._anim = answer.animate(
+            [{ height: '0px', opacity: 0 }, { height: endH + 'px', opacity: 1 }],
+            OPEN
+          );
+          item._anim.onfinish = () => {
+            answer.style.height = '';
+            item._anim = null;
+          };
+        }
+      });
+    });
+  }
+
 }); // fim DOMContentLoaded
