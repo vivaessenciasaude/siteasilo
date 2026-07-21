@@ -9,6 +9,7 @@ const CONFIG = {
   ADS_CONVERSION_ID: 'AW-18082316445',
   ADS_LABEL_FORM: 'PENDENTE',      // TODO: criar ação de conversão no Google Ads e colar o label aqui
   ADS_LABEL_WHATSAPP: 'PENDENTE',  // TODO: criar ação de conversão no Google Ads e colar o label aqui
+  ADS_LABEL_PHONE: 'PENDENTE',     // TODO: criar ação de conversão no Google Ads e colar o label aqui
 };
 
 function safeCall(fn, label) {
@@ -53,6 +54,26 @@ function trackWhatsAppClick() {
       value: 1.0,
       currency: 'BRL',
     }), 'Ads conversion whatsapp');
+  }
+
+  // TODO: ativar quando tiver Meta Pixel ID
+  // safeCall(() => fbq('track', 'Contact'), 'Meta Contact');
+}
+
+function trackPhoneClick() {
+  // GA4 sempre dispara
+  safeCall(() => gtag('event', 'click', {
+    event_category: 'contact',
+    event_label: 'phone',
+  }), 'GA4 phone click');
+
+  // Ads só dispara se label estiver configurado
+  if (CONFIG.ADS_LABEL_PHONE !== 'PENDENTE') {
+    safeCall(() => gtag('event', 'conversion', {
+      send_to: `${CONFIG.ADS_CONVERSION_ID}/${CONFIG.ADS_LABEL_PHONE}`,
+      value: 1.0,
+      currency: 'BRL',
+    }), 'Ads conversion phone');
   }
 
   // TODO: ativar quando tiver Meta Pixel ID

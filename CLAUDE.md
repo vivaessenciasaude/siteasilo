@@ -146,9 +146,9 @@ viva-essencia/
 
 ### Implementadas
 - **Google Analytics 4** — ID: `G-LS74GEWELB`
-  - Eventos: `generate_lead` (form submit), `click` (WhatsApp)
+  - Eventos: `generate_lead` (form submit), `click` com `event_label: 'whatsapp'` (botões WhatsApp) e `event_label: 'phone'` (links `tel:`)
 - **Google Ads** — Conversion ID: `AW-18082316445`
-  - Ações de conversão pendentes de criação no painel (envio de formulário + clique WhatsApp). Labels ficam como `'PENDENTE'` no `tracking.js` até serem criadas.
+  - Ações de conversão pendentes de criação no painel (envio de formulário + clique WhatsApp + clique telefone). Labels ficam como `'PENDENTE'` no `tracking.js` até serem criadas.
 
 ### Pendentes
 - **Meta Pixel** — aguardando criação do Business Manager
